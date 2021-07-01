@@ -1,0 +1,9 @@
+{% load i18n cms %}
+
+<section class="button">
+    <a class="button" href="{{ section.href }}">
+        {{section.title}}
+    </a>
+
+    {% editsection '<img src="/static/cms/edit.png">' %}
+</section>

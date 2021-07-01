@@ -1,4 +1,5 @@
 import uuid
+from decimal import Decimal
 
 from cms import fields, mixins, models
 from django.conf import settings
@@ -78,6 +79,7 @@ class Invoice(BaseModel):
     language = fields.CharField(
         _("language"), choices=settings.LANGUAGES, default=settings.LANGUAGE_CODE
     )
+    currency = fields.CharField(_("currency"), default="€")
     recipient = fields.TextField(_("recipient"))
     number = fields.PositiveIntegerField(_("number"), blank=True, null=True)
     date = fields.DateField(_("date"), blank=True, null=True)
@@ -97,6 +99,10 @@ class Invoice(BaseModel):
     @property
     def final(self):
         return self.number is not None
+
+    @property
+    def total(self):
+        return sum([line.total for line in self.lines])
 
     def finalize(self):
         self.date = timezone.now()
@@ -144,3 +150,7 @@ class Line(mixins.Numbered, BaseModel):
 
     def number_with_respect_to(self):
         return self.invoice.lines.all()
+
+    @property
+    def total(self):
+        return (self.unit_price * self.quantity).quantize(Decimal("0.01"))

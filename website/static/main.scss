@@ -97,6 +97,7 @@ div.spacer {
 }
 
 header {
+  margin-top: 3rem;
   text-align: center;
 }
 
@@ -208,9 +209,10 @@ nav {
 section {
   clear: both;
   position: relative;
+  margin: 3rem;
 
   div.title {
-    text-align: center;
+    //text-align: center;
   }
 
   div.video {
@@ -257,6 +259,10 @@ section.images {
   }
 }
 
+section.button {
+  text-align: center;
+}
+
 section.contact {
   div.message {
     display: none;
@@ -264,7 +270,7 @@ section.contact {
   div.formfield {
     padding: 0.5em 0;
   }
-  form input, form textarea {
+  form input, form textarea, form select {
     box-sizing: border-box;
     font-family: inherit;
     font-size: inherit;

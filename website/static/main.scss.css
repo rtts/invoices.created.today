@@ -83,6 +83,7 @@ div.spacer {
   clear: both; }
 
 header {
+  margin-top: 3rem;
   text-align: center; }
 
 nav button#hamburger {
@@ -166,9 +167,8 @@ nav ul {
 
 section {
   clear: both;
-  position: relative; }
-  section div.title {
-    text-align: center; }
+  position: relative;
+  margin: 3rem; }
   section div.video div.iframe {
     width: 100%;
     padding-bottom: 56%;
@@ -198,13 +198,16 @@ section.images div.images {
         height: 100%;
         width: 100%; }
 
+section.button {
+  text-align: center; }
+
 section.contact div.message {
   display: none; }
 
 section.contact div.formfield {
   padding: 0.5em 0; }
 
-section.contact form input, section.contact form textarea {
+section.contact form input, section.contact form textarea, section.contact form select {
   box-sizing: border-box;
   font-family: inherit;
   font-size: inherit;
