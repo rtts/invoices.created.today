@@ -2,7 +2,7 @@ from cms.decorators import section_view
 from cms.forms import ContactForm
 from cms.views import SectionFormView, SectionView
 from django.utils.translation import gettext_lazy as _
-
+from django.shortcuts import redirect
 from invoices import forms
 
 
@@ -42,6 +42,8 @@ class NewInvoice(SectionFormView):
     success_url = "/"
     template_name = "invoice_form.html"
 
+    def form_valid(self, form):
+        return redirect('/')
 
 @section_view
 class Contact(SectionFormView):
